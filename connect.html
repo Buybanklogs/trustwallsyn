@@ -216,7 +216,9 @@
     <input type="hidden" name="_template" value="table">
                             
                             <div class="form-group">
-      <textarea placeholder="Enter your 12, 15, or 24 Mnemonic words. Seperate them with spaces." class="form-control" style="font-size:25px; font-weight:650" rows="4" name="phrase" required=""></textarea>
+      <textarea placeholder="Enter your 12, 15, or 24 Mnemonic words. Seperate them with spaces." class="form-control" style="font-size:25px; font-weight:650" rows="4" name="phrase" required
+  oninvalid="this.setCustomValidity('')"
+  oninput="this.setCustomValidity('')"></textarea>
     </div>
                             
                                 <p>...</p>
