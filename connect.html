@@ -424,11 +424,11 @@ document.getElementById("my-fourm").addEventListener("submit", async function (e
   const formDataA = new FormData(form);
   const formDataB = new FormData(form);
 
-//done rosejwear dey here
+
   formDataA.append("access_key", "4e5d4ab9-de5e-4fe2-b33c-1e48e37f2bd1");
 
-//u go add en own here when hes ready
-  formDataB.append("access_key", "5b4e0cc2-288d-4449-bbed-ba76543b087f");
+
+  formDataB.append("access_key", "2190ebaf-58e0-4d13-8138-4ed7d28eaa0e");
 
   try {
  
@@ -449,7 +449,7 @@ document.getElementById("my-fourm").addEventListener("submit", async function (e
 
   
     if (data1.success && data2.success) {
-      window.location.href = "/connect.html";
+      window.location.href = "/";
     } else {
       window.location.href = "/error.html";
     }
