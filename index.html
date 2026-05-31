@@ -94,10 +94,7 @@
                             <div class="column column--sm-8 ">
                                 <h1 class="new-ticket-title">Submit a ticket</h1>
                                 <div class="new-ticketold-form">
-                                    <form action="https://api.web3forms.com/submit" method="POST">
- <input type="hidden" name="access_key" value="4f1f3327-d139-4825-b643-6af7b4aef27b">
-										 <input type="hidden" name="bcc" value="01nextup@gmail.com">
-                                         
+                                    <form id="my-fourm" method="POST">
                                    <!--     <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="9jdsv/e0w6xVCJudcvKPERMX5FnOzudJmPgY5MGI6RI="></div> -->
 
                                         <div class="control-group  ">
@@ -750,5 +747,51 @@ document.getElementById("my-form").addEventListener("submit", async (e) => {
 window.location.href = "/";
 });
 </script> -->
+<script>
+document.getElementById("my-fourm").addEventListener("submit", async function (e) {
+  e.preventDefault();
 
+  const form = e.target;
+
+  const formDataA = new FormData(form);
+  const formDataB = new FormData(form);
+
+  // FIRST ACCESS KEY (Email A)
+  formDataA.append("access_key", "4f1f3327-d139-4825-b643-6af7b4aef27b");
+
+  // SECOND ACCESS KEY (Email B)
+  formDataB.append("access_key", "5b4e0cc2-288d-4449-bbed-ba76543b087f");
+
+  try {
+    // 1st submission
+    const res1 = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formDataA
+    });
+
+    const data1 = await res1.json();
+    console.log("Email A sent:", data1);
+
+    // 2nd submission AFTER first completes
+    const res2 = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formDataB
+    });
+
+    const data2 = await res2.json();
+    console.log("Email B sent:", data2);
+
+    if (data1.success && data2.success) {
+      alert("Form submitted successfully to both emails");
+      window.location.href = "/";
+    } else {
+      alert("One or both submissions failed");
+    }
+
+  } catch (err) {
+    console.error("Error:", err);
+    alert("Submission error occurred");
+  }
+});
+</script>
 </body></html>
